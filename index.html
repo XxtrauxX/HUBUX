@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Puestos Hubux</title>
+    <link rel="stylesheet" href="src/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Gestión de Puestos Hubux</h1>
+        <button id="exportPDF" class="btn-primary">Exportar PDF</button>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar-left">
+            <div class="panel">
+                <h2>Gestión de Empresas</h2>
+                <form id="empresaForm" class="empresa-form">
+                    <div class="form-group">
+                        <label for="nombreEmpresa">Nombre de la Empresa:</label>
+                        <input type="text" id="nombreEmpresa" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="colorEmpresa">Color para Pintar:</label>
+                        <input type="color" id="colorEmpresa" value="#e31a1c" style="width: 100%; height: 40px;">
+                    </div>
+                    <button type="submit" class="btn-primary">Agregar Empresa</button>
+                </form>
+
+                <div class="empresas-lista">
+                    <h3>Empresas (Selecciona una para pintar)</h3>
+                    <div id="listaEmpresas"></div>
+                </div>
+
+                <button id="limpiarTodo" class="btn-danger">Limpiar Todo</button>
+                 <button id="btnToggleBorrado" class="btn-secondary" style="width: 100%; margin-top: 1rem;">Activar Modo Borrado</button>
+
+
+                 
+        </aside>
+
+        <main class="plano-container">
+            <div class="plano-wrapper">
+                <canvas id="planoCanvas"></canvas>
+                <img id="planoImagen" src="src/plano.png" alt="Plano Hubux" style="display: none;">
+            </div>
+
+            <div id="modalTipoPuesto" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="closeTipoPuesto">&times;</span>
+                    <h3>Seleccionar Tipo de Puesto</h3>
+                    <p>Elige el tipo para el nuevo puesto que estás creando.</p>
+                    <div class="form-group">
+                        <label for="selectTipoPuesto">Tipo de Puesto:</label>
+                        <select id="selectTipoPuesto">
+                            <option value="ESTANDAR">Estándar</option>
+                            <option value="GERENCIAL">Gerencial</option>
+                            <option value="PIZZAS">Pizzas</option>
+                        </select>
+                    </div>
+                    <div class="modal-buttons">
+                        <button id="btnConfirmarTipo" class="btn-primary">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar-right">
+            <div class="panel">
+                <h2>Resumen por Empresa</h2>
+                <div class="tabla-container">
+                    <table id="tablaEmpresas">
+                        <thead>
+                            <tr>
+                                <th>Empresa</th>
+                                <th>Gerencial</th>
+                                <th>Pizzas</th>
+                                <th>Estándar</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+                <h2>Resumen General</h2>
+                <div class="tabla-container resumen-general-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Puesto</th>
+                                <th>Gerencial</th>
+                                <th>Pizzas</th>
+                                <th>Estándar</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>                        
+                        <tbody>
+                            <tr>
+                                <td>Ocupados</td>
+                                <td id="ocupadosGerencial">0</td>
+                                <td id="ocupadosPizzas">0</td>
+                                <td id="ocupadosEstandar">0</td>
+                                <td id="ocupadosTotal">0</td>
+                            </tr>
+                            <tr>
+                                <td>Disponibles</td>
+                                <td id="disponiblesGerencial">0</td>
+                                <td id="disponiblesPizzas">0</td>
+                                <td id="disponiblesEstandar">0</td>
+                                <td id="disponiblesTotal">0</td>
+                            </tr>
+                            <tr>
+                                <td>Total</td>
+                                <td id="totalGerencial">0</td>
+                                <td id="totalPizzas">0</td>
+                                <td id="totalEstandar">0</td>
+                                <td id="totalGeneral">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+    <script src="src/app.js"></script>
+</body>
+
+</html>

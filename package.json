@@ -1,0 +1,27 @@
+{
+  "name": "sistema-gestion-puestos",
+  "version": "1.0.0",
+  "description": "Sistema web interactivo para gestionar la asignación de puestos de trabajo a empresas",
+  "main": "src/app.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "gestión",
+    "puestos",
+    "empresas",
+    "canvas",
+    "pdf"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  },
+  "dependencies": {
+    "jspdf": "^3.0.1",
+    "jspdf-autotable": "^5.0.2"
+  }
+}
